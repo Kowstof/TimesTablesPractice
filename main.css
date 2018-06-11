@@ -1,3 +1,27 @@
+body, body * {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
 #gameCanvas {
-  background: red;
+  position: relative;
+}
+
+#slidingBackground {
+  background: url("https://i.imgur.com/sNIJzWF.jpg") repeat-x;
+  width: 11520px;
+  height: 2000px;
+  animation: slide 90s linear infinite;
+  position: absolute;
+  z-index: -1;
+}
+
+@keyframes slide{
+  0%{
+    transform: translate3d(0, 0, 0);
+  }
+  100%{
+    transform: translate3d(-3840px, 0, 0);
+  }
 }
