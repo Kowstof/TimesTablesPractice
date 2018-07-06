@@ -11,12 +11,101 @@
 
   <!-- LINKS/CSS
   ------------------------->
+  <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
   <link rel="stylesheet" href="main.css">
+
+
+  <!-- SCRIPTS
+  ------------------------->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
+
+
 <body>
+  <!--Mute button outside of main divs so its always visible-->
+  <button id="muteButton">
+    <img id="muteIcon" src="https://png.icons8.com/small/64/2FA6CF/speaker.png">
+  </button>
+
+  <div id="startScreen">
+    <img id="logo" src="img/logo.png"></img>
+    <img id="startScreenShip" src="img/ship_l.png"></img>
+    <button type="button" id="startButton">BATTLE!</button>
+    <img id="msg" src="img/msg.png"></img>
+  </div>
+  <div id="mainContainer">
+
   <div id="slidingBackground"></div>
-  <canvas id="gameCanvas">
-  </canvas>
-  <script src="script.js" charset="utf-8"></script>
+  <script src="script.1.js" charset="utf-8"></script>
+
+  <!--Retreat button-->
+  <button id="retreatButton">RETREAT</button>
+
+  <!--background music-->
+  <audio id="bgMusic" autoplay loop>
+    <source src="bg_music.mp3" type="audio/mpeg"></source>
+  </audio>
+
+  <!--Answer Popup Box-->
+  <div id="popup">
+    <div id="popupContent">
+      <p><span id="num1"></span> × <span id="num2"></span><input autofocus type="text" id="answer"/></p>
+      <button type="button" id="check">ANSWER</button>
+    </div>
+  </div>
+
+  <!--Win/loss popup-->
+  <div id="resultPopup">
+    <div id="popupContent">
+      <p id="resultText">BATTLE WON!</p>
+      <button type="button" id="resultButton">CONTINUE</button>
+    </div>
+  </div>
+
+  <!--Player Ship-->
+  <div class="ship" id="ship1">
+    <p id="playerFloatText">TESMETESMETETE</p>
+    <img id="playerShipSprite" src="img/ship.png"></img>
+    <p id="playerHealthText"><span id="playerHealth"></span>/3500</p>
+  </div>
+
+  <!--Unfortunately unimplemented gifs of shooting :( -->
+  <!--<img src="img/laser.gif" id="laserGif"></img>-->
+
+  <!--Enemy Ship-->
+  <div class="ship" id="ship2">
+    <p id="enemyFloatText">TESMETESMETETE</p>
+    <img id="enemyShipSprite" src="img/enemy2.png"></img>
+    <p id="enemyHealthText"><span id="enemyHealth"></span>/3500</p>
+  </div>
+
+  <!--Action bar container-->
+  <div id="actionContainer">
+
+    <!--Light Attack-->
+    <div id="tooltip1" class="tooltip">
+      <span class="tooltipAttackName">Laser Beam</span>
+      <span class="tooltipDamage">Damage: <span class="red">250</span></span>
+      <span class="tooltipSuccess">Chance of Success: <span class="percentage">90%</span></span>
+    </div>
+    <img src="img/light_attack.png" class="action" id="action1"></img>
+
+    <!--Heavy Attack-->
+    <div id="tooltip2" class="tooltip">
+      <span class="tooltipAttackName">Plasma Cannon</span>
+      <span class="tooltipDamage">Damage: <span class="red">420</span></span>
+      <span class="tooltipSuccess">Chance of Success: <span class="percentage">60%</span></span>
+    </div>
+    <img src="img/heavy_attack.png" class="action" id="action2"></img>
+
+    <!--Repair-->
+    <div id="tooltip3" class="tooltip">
+      <span class="tooltipAttackName">Repair Drones</span>
+      <span class="tooltipDamage">Repair: <span class="red">300</span></span>
+      <span class="tooltipSuccess">Chance of Success: <span class="percentage">100%</span></span>
+    </div>
+    <img src="img/repair.png" class="action" id="action3"></img>
+  </div>
+</div>
 </body>
 </html>
